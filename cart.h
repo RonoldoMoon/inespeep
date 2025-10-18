@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdint.h>
 
-uint8_t nes_sig[4] = { 'N', 'E', 'S', 0x1A };
+uint8_t ines_sig[4] = { 'N', 'E', 'S', 0x1A };
 
 /* iNES header */
 typedef struct rom_header_s  {
@@ -43,7 +43,7 @@ int checkSignature(rom_header_t *p)  {
 
 	temp[i] = 0;
 
-	if ( !(strcmp(temp, nes_sig)) ) { free(temp); return 1; }
+	if ( !(strcmp(temp, ines_sig)) ) { free(temp); return 1; }
 
 	free(temp);
 	return 0;
